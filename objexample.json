@@ -1,0 +1,40 @@
+{
+    "detections": [
+      {
+        "categories": [
+          {
+            "score": 0.73388671875,
+            "index": -1,
+            "categoryName": "person",
+            "displayName": ""
+          }
+        ],
+        "keypoints": [],
+        "boundingBox": {
+          "originX": 102,
+          "originY": 182,
+          "width": 675,
+          "height": 408,
+          "angle": 0
+        }
+      },
+      {
+        "categories": [
+          {
+            "score": 0.560546875,
+            "index": -1,
+            "categoryName": "chair",
+            "displayName": ""
+          }
+        ],
+        "keypoints": [],
+        "boundingBox": {
+          "originX": 807,
+          "originY": 509,
+          "width": 124,
+          "height": 88,
+          "angle": 0
+        }
+      }
+    ]
+  }

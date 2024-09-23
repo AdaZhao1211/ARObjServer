@@ -1,0 +1,41 @@
+{
+  "task": "Cooking Rice with Hamilton Beach Multi-Cooker",
+  "steps": [
+    {
+      "step_number": 2,
+      "description": "Measure the Rice",
+      "details": "Measure the desired amount of rice using a measuring cup.",
+      "extracted_action":{
+        "action_type": "transfer",
+        "objects":["rice", "measuring cup"]
+      }
+    },
+    {
+        "step_number": 3,
+        "description": "Pour Rice",
+        "details": "Pour the rice into the cooking pot of the Hamilton Beach multi-cooker.",
+        "extracted_action":{
+          "action_type": "transfer",
+          "objects":["measuring cup", "cooking pot"]
+        }
+    },
+    {
+      "step_number": 4,
+      "description": "Add Water to the Multi-Cooker",
+      "details":"Add the appropriate amount of water according to the rice variety. A general guideline is 1:1.5 for white rice and 1:2 for brown rice (rice to water ratio).",
+      "extracted_action":{
+        "action_type": "add",
+        "objects": ["water", "multi-cooker"]
+      }
+    },
+    {
+      "step_number": 5,
+      "description": "Start Cooking",
+      "details": "Press the start button to begin the cooking cycle. The cooker will automatically adjust the time and temperature.",
+      "extracted_action":{
+        "action_type": "press",
+        "objects":["start button"]
+      }
+    }
+  ]
+}
