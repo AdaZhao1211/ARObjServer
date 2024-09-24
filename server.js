@@ -20,7 +20,7 @@ async function getCompletion(userMessage, imageUrl) {
             messages: [
                 {
                     role: "system",
-                    content: "You are my assistant. I will send you questions, maybe paired with images. Please answer the question within 100 words"
+                    content: "You are my assistant. I will send you questions, maybe paired with images. Please answer the question within 50 words"
                 },
                 {
                     "role": "user",
@@ -60,10 +60,15 @@ app.post('/get-completion', async (req, res) => {
 
         // Send the response to the first WebSocket client (headset)
         if (clients.length > 0) {
-            clients[0].send(JSON.stringify({
+
+            const gptMessage = JSON.stringify({
                 type: 'gpt-response',
-                content: responseMessage.content // Send only the message content
-            }));
+                content: {
+                    content: responseMessage.content // Send only the message content
+                }
+            });
+            console.log("gpt:" + gptMessage);
+            clients[0].send(gptMessage);
             console.log('Sent response to the headset client via WebSocket.');
         } else {
             console.log('No WebSocket clients connected to send the response.');
