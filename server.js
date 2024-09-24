@@ -57,6 +57,17 @@ app.post('/get-completion', async (req, res) => {
 
         // Send response back to the client
         res.json(responseMessage);
+
+        // Send the response to the first WebSocket client (headset)
+        if (clients.length > 0) {
+            clients[0].send(JSON.stringify({
+                type: 'gpt-response',
+                content: responseMessage.content // Send only the message content
+            }));
+            console.log('Sent response to the headset client via WebSocket.');
+        } else {
+            console.log('No WebSocket clients connected to send the response.');
+        }
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
@@ -82,7 +93,10 @@ wss.on('connection', (ws) => {
     // Receive messages from the client
     ws.on('message', (message) => {
         console.log(`Received: ${message}`);
-        clients[0].send(message);
+        clients[0].send(JSON.stringify({
+            type: 'obj-recognition',
+            content: message // Send only the message content
+        }))
     });
 
     // Client disconnected
